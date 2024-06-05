@@ -1,0 +1,69 @@
+format: hkmd
+entities:
+- description: An individual human being
+  format: entity
+  name: Person
+  relationships:
+  - name
+  - description
+  - birth_date
+relationships:
+- description: The date on which the person was born
+  format: relationship
+  name: birth_date
+  predicates:
+  - has_birth_date
+- description: A textual representation providing details about the nature, purpose
+    or characteristics of an entity.
+  format: relationship
+  name: description
+  predicates:
+  - has_description
+- description: An illustrative instance that exemplifies the concept or semantics
+    of an entity.
+  format: relationship
+  name: example
+  predicates:
+  - has_example
+- aliases:
+  - has_parts
+  description: Indicates that an entity is composed of or contains the specified part,
+    component or sub-entity as an is_instance_of relationship.
+  format: relationship
+  name: has_part
+  predicates:
+  - has_part
+  - has_component
+- aliases:
+  - is_instance_of
+  description: Denotes that a specific entity manifests or instantiates the stated
+    general class or category.
+  format: relationship
+  name: is_a
+  predicates:
+  - is_a
+  - is_instance_of
+  - instantiates
+- aliases:
+  - names
+  description: The string used to identify and refer to an entity.
+  format: relationship
+  name: name
+  predicates:
+  - has_name
+- description: Indicates that an entity is a part, component or sub-entity that is
+    contained within or composes the specified entity, as an is_instance_of relationship.
+  format: relationship
+  name: part_of
+  predicates:
+  - is_part_of
+  - is_component_of
+- aliases:
+  - relationship
+  - relationships
+  description: Denotes that two entities are associated, connected or have a relationship
+    between them, without specifying the type of relationship.
+  format: relationship
+  name: related_to
+  predicates:
+  - is_related_to
