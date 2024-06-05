@@ -74,6 +74,10 @@ for package_name in package_names:
                     else:
                         print(f"Warning: {file_path} does not define an entity or a relationship.")
 
+    # Sort the entities and relationships by name
+    entities.sort(key=lambda x: x["name"])
+    relationships.sort(key=lambda x: x["name"])
+
     # Create the package definition in HKMD format
     package_definition = OrderedDict([
         ("format", "hkmd"),
