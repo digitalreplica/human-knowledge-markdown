@@ -1,0 +1,9 @@
+format: relationship
+name: is_a
+aliases:
+  - is_instance_of  
+predicates:
+  - is_a
+  - is_instance_of  
+  - instantiates
+description: Denotes that a specific entity manifests or instantiates the stated general class or category.

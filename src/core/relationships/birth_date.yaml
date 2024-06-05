@@ -1,0 +1,5 @@
+format: relationship
+name: birth_date
+predicates:
+  - has_birth_date
+description: The date on which the person was born

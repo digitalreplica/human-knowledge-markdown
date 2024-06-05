@@ -1,0 +1,7 @@
+format: entity 
+name: Person
+description: An individual human being
+relationships:
+  - name
+  - description
+  - birth_date

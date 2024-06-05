@@ -1,0 +1,5 @@
+format: relationship
+name: example
+predicates:
+  - has_example
+description: An illustrative instance that exemplifies the concept or semantics of an entity.

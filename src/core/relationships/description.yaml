@@ -1,0 +1,5 @@
+format: relationship 
+name: description
+predicates:
+  - has_description
+description: A textual representation providing details about the nature, purpose or characteristics of an entity.
