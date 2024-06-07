@@ -1,7 +1,7 @@
 # Relationship Definition
 name: relationship
-description: An associative connection between two or more entities.
-is_a: entity
+description: An attribute that represents an associative connection between the entity and other entities.
+is_a: attribute
 aliases:
   - relationships
 predicates:

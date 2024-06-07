@@ -1,6 +1,6 @@
 # Description Definition
 name: description
 description: A textual representation providing details about an entity.
-is_a: relationship
+is_a: attribute
 predicates:
   - has_description
