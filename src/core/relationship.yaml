@@ -1,5 +1,5 @@
 # Relationship Definition
-name: relationship  
+name: relationship
 description: An associative connection between two or more entities.
 is_a: entity
 aliases:
