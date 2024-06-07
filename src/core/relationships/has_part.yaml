@@ -1,8 +1,0 @@
-format: relationship
-name: has_part
-predicates:
-  - has_part
-  - has_component
-aliases:
-  - has_parts
-description: Indicates that an entity is composed of or contains the specified part, component or sub-entity as an is_instance_of relationship.

@@ -1,0 +1,5 @@
+name: related_to
+description: Denotes that two entities are associated, connected or have a relationship between them, without specifying the type of relationship.
+is_a: relationship
+predicates:
+  - is_related_to

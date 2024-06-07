@@ -1,6 +1,0 @@
-format: relationship
-name: part_of
-predicates:
-  - is_part_of
-  - is_component_of
-description: Indicates that an entity is a part, component or sub-entity that is contained within or composes the specified entity, as an is_instance_of relationship.

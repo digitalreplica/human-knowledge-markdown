@@ -1,0 +1,10 @@
+name: has_part
+description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
+is_a: relationship
+aliases:
+  - has_parts
+  - contains
+  - encompasses
+predicates:
+  - has_part
+  - has_component
