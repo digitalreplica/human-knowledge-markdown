@@ -36,9 +36,8 @@ if not os.path.exists(DEST_FOLDER):
 
 # Iterate over the package names
 for package_name in package_names:
-    # Initialize lists to store entities and relationships
+    # Initialize lists to store entities
     entities = []
-    relationships = []
 
     # Check if the source folder for the package exists
     if not os.path.exists(os.path.join(SRC_FOLDER, package_name)):
@@ -60,35 +59,31 @@ for package_name in package_names:
                     # Parse the YAML content
                     content = yaml.safe_load(file)
 
-                    # Check if the file defines an entity or a relationship
-                    if content.get("format") == "entity":
-                        # Append the entity
-                        if args.verbose:
-                            print(f" - Found entity: {content['name']}")
-                        entities.append(content)
-                    elif content.get("format") == "relationship":
-                        # Append the relationship
-                        if args.verbose:
-                            print(f" - Found relationship: {content['name']}")
-                        relationships.append(content)
-                    else:
-                        print(f"Warning: {file_path} does not define an entity or a relationship.")
+                    # Ensure that the content has name, description, and is_a fields
+                    if not content.get("name") or not content.get("description") or not content.get("is_a"):
+                        print(f"Error: {file_path} does not define a valid entity")
+                        continue
+
+                    # Append to entities
+                    entities.append(content)
+                    if args.verbose:
+                        print(f" - Found entity or relationship: {content['name']}")
+                    
 
     # Sort the entities and relationships by name
     entities.sort(key=lambda x: x["name"])
-    relationships.sort(key=lambda x: x["name"])
 
     # Create the package definition in HKMD format
-    package_definition = OrderedDict([
-        ("format", "hkmd"),
-        ("entities", entities),
-        ("relationships", relationships)
-    ])
+    # package_definition = OrderedDict([
+    #     ("format", "hkmd"),
+    #     ("entities", entities),
+    #     ("relationships", relationships)
+    # ])
 
     # Write the package definition to the destination file
     dest_file_path = os.path.join(DEST_FOLDER, f"{package_name}.yaml")
     with open(dest_file_path, "w") as file:
-        yaml.dump(package_definition, file, default_flow_style=False)
+        yaml.dump(entities, file, default_flow_style=False, sort_keys=False)
 
     if args.verbose:
         print(f"Package definition written to {dest_file_path}")
