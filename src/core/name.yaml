@@ -1,0 +1,6 @@
+# Name Definition
+name: name
+description: The string used to identify and refer to an entity.
+is_a: relationship
+predicates:
+  - has_name

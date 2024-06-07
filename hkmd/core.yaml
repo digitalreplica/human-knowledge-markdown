@@ -1,69 +1,79 @@
-format: hkmd
-entities:
-- description: An individual human being
-  format: entity
-  name: Person
+- name: alias
+  description: Alternative linguistic representation used to refer to the same entity.
+  is_a: relationship
+  aliases:
+    - aliases
+  predicates:
+    - has_alias
+
+- name: description
+  description: A textual representation providing details about an entity.
+  is_a: relationship
+  predicates:
+    - has_description
+
+- name: entity
+  description: The primordial representational unit denoting the existence of a distinct concept, construct or individuated thing, whether abstract or concrete.
+  is_a: entity
   relationships:
-  - name
-  - description
-  - birth_date
-relationships:
-- description: The date on which the person was born
-  format: relationship
-  name: birth_date
+    - name
+    - description
+    - aliases
+    - predicates
+
+- name: has_part
+  description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
+  is_a: relationship
+  aliases:
+    - has_parts
+    - contains
+    - encompasses
   predicates:
-  - has_birth_date
-- description: A textual representation providing details about the nature, purpose
-    or characteristics of an entity.
-  format: relationship
-  name: description
+    - has_part
+    - has_component
+
+- name: is_a
+  description: Denotes that a specific entity manifests or instantiates the stated general class or category.
+  is_a: relationship
+  aliases:
+    - is
   predicates:
-  - has_description
-- description: An illustrative instance that exemplifies the concept or semantics
-    of an entity.
-  format: relationship
-  name: example
-  predicates:
-  - has_example
-- aliases:
-  - has_parts
-  description: Indicates that an entity is composed of or contains the specified part,
-    component or sub-entity as an is_instance_of relationship.
-  format: relationship
-  name: has_part
-  predicates:
-  - has_part
-  - has_component
-- aliases:
-  - is_instance_of
-  description: Denotes that a specific entity manifests or instantiates the stated
-    general class or category.
-  format: relationship
-  name: is_a
-  predicates:
-  - is_a
-  - is_instance_of
-  - instantiates
-- aliases:
-  - names
+    - is_a
+    - is_instance_of
+    - instantiates
+
+- name: name
   description: The string used to identify and refer to an entity.
-  format: relationship
-  name: name
+  is_a: relationship
   predicates:
-  - has_name
-- description: Indicates that an entity is a part, component or sub-entity that is
-    contained within or composes the specified entity, as an is_instance_of relationship.
-  format: relationship
-  name: part_of
+    - has_name
+
+- name: part_of
+  description: Indicates that an entity is a component, sub-entity or part that is contained within or composes the specified other entity.
+  is_a: relationship
   predicates:
-  - is_part_of
-  - is_component_of
-- aliases:
-  - relationship
-  - relationships
-  description: Denotes that two entities are associated, connected or have a relationship
-    between them, without specifying the type of relationship.
-  format: relationship
-  name: related_to
+    - part_of
+    - is_component_of
+
+- name: predicate
+  description: Linguistic phrase expressing the relationship between an entity and other entities.
+  is_a: relationship
+  aliases:
+    - predicates
   predicates:
-  - is_related_to
+    - has_predicate
+
+- name: related_to
+  description: Denotes that two entities are associated, connected or have a relationship between them, without specifying the type of relationship.
+  is_a: relationship
+  predicates:
+    - is_related_to
+
+- name: relationship
+  description: An associative connection between two or more entities.
+  is_a: entity
+  aliases:
+    - relationships
+  predicates:
+    - is_related_to
+    - relates

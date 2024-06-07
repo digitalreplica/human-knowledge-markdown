@@ -1,7 +1,0 @@
-format: relationship
-name: name
-predicates:
-  - has_name
-aliases:
-  - names
-description: The string used to identify and refer to an entity.

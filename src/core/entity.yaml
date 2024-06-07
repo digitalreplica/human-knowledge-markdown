@@ -1,0 +1,9 @@
+# Entity Definition
+name: entity
+description: The primordial representational unit denoting the existence of a distinct concept, construct or individuated thing, whether abstract or concrete.
+is_a: entity
+relationships:
+  - name
+  - description
+  - aliases
+  - predicates
