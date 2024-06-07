@@ -1,7 +1,7 @@
 # Alias Definition
 name: alias
 description: Alternative linguistic representation used to refer to the same entity.
-is_a: relationship
+is_a: attribute
 aliases:
   - aliases
 predicates:

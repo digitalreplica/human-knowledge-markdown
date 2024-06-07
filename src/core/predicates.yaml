@@ -1,8 +1,0 @@
-# Predicates Definition
-name: predicate
-description: Linguistic phrase expressing the relationship between an entity and other entities.
-is_a: relationship
-aliases:
-  - predicates
-predicates:
-  - has_predicate

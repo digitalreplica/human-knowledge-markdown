@@ -1,8 +1,6 @@
 - name: alias
   description: Alternative linguistic representation used to refer to the same entity.
   is_a: attribute
-  aliases:
-    - aliases
   predicates:
     - has_alias
 
@@ -27,18 +25,6 @@
     - name
     - description
     - aliases
-    - predicates
-
-- name: has_part
-  description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
-  is_a: relationship
-  aliases:
-    - has_parts
-    - contains
-    - encompasses
-  predicates:
-    - has_part
-    - has_component
 
 - name: is_a
   description: Denotes that a specific entity manifests or instantiates the stated general class or category.
@@ -56,32 +42,15 @@
   predicates:
     - has_name
 
-- name: part_of
-  description: Indicates that an entity is a component, sub-entity or part that is contained within or composes the specified other entity.
-  is_a: relationship
-  predicates:
-    - part_of
-    - is_component_of
-
 - name: predicate
   description: Linguistic phrase expressing an attribute of an entity.
   is_a: attribute
-  aliases:
-    - predicates
   predicates:
     - has_predicate
-
-- name: related_to
-  description: Denotes that two entities are associated, connected or have a relationship between them, without specifying the type of relationship.
-  is_a: relationship
-  predicates:
-    - is_related_to
 
 - name: relationship
   description: An attribute that represents an associative connection between the entity and other entities.
   is_a: attribute
-  aliases:
-    - relationships
   predicates:
     - is_related_to
     - relates
