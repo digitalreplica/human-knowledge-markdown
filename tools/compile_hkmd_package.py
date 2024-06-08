@@ -75,7 +75,7 @@ for package_name in package_names:
     # Write the package definition to the destination file
     dest_file_path = os.path.join(DEST_FOLDER, f"{package_name}.yaml")
     with open(dest_file_path, "w") as file:
-        yaml.dump(entities, file, Dumper=CustomYamlDumper, default_flow_style=False, sort_keys=False, allow_unicode=True, width=200)
+        yaml.dump(entities, file, Dumper=CustomYamlDumper, default_flow_style=False, sort_keys=False, allow_unicode=True, width=100)
 
     if args.verbose:
         print(f"Package definition written to {dest_file_path}")
