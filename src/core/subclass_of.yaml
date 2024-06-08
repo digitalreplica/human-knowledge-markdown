@@ -1,0 +1,12 @@
+name: subclass_of
+aliases:
+  - subclass
+is_a:
+  - relationship
+  - subclass_of
+subclass_of: entity
+description: The primordial relationship that denotes a specific entity type manifesting as a more specialized subcategory that inherits all properties and constraints from a stated general superclass entity type. Defines the subclass hierarchy itself through circular grounding.
+predicates:
+  - is_subclass_of
+  - is_subcategory_of 
+  - specializes
