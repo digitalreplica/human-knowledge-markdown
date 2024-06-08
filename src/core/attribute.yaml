@@ -9,3 +9,6 @@ attributes:
   - name
   - description
   - predicates
+predicates:
+  - has_attribute
+  - has_property

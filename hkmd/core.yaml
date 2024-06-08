@@ -9,10 +9,17 @@
 - name: attribute
   description: A characteristic, quality or information associated with an entity.
   is_a: entity
+  aliases:
+    - attributes
+    - property
+    - properties
   attributes:
     - name
     - description
     - predicates
+  predicates:
+    - has_attribute
+    - has_property
 
 - name: description
   description: A textual representation providing details about an entity.
