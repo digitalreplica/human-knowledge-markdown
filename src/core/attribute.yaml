@@ -1,6 +1,7 @@
 name: attribute
 description: A characteristic, quality or information associated with an entity.
-is_a: entity
+is_a: subclass_of
+subclass_of: entity
 aliases:
   - attributes
   - property

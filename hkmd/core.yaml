@@ -1,6 +1,7 @@
 - name: alias
   description: Alternative linguistic representation used to refer to the same entity.
-  is_a: attribute
+  is_a: subclass_of
+  subclass_of: attribute
   aliases:
     - aliases
   predicates:
@@ -8,7 +9,8 @@
 
 - name: attribute
   description: A characteristic, quality or information associated with an entity.
-  is_a: entity
+  is_a: subclass_of
+  subclass_of: entity
   aliases:
     - attributes
     - property
@@ -23,12 +25,14 @@
 
 - name: description
   description: A textual representation providing details about an entity.
-  is_a: attribute
+  is_a: subclass_of
+  subclass_of: attribute
   predicates:
     - has_description
 
 - name: entity
-  description: The primordial representational unit denoting the existence of a distinct concept, construct or individuated thing, whether abstract or concrete.
+  description: The primordial representational unit denoting the existence of a distinct concept, construct
+    or individuated thing, whether abstract or concrete.
   is_a: entity
   attributes:
     - name
@@ -38,7 +42,8 @@
 
 - name: has_part
   description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
-  is_a: relationship
+  is_a: subclass_of
+  subclass_of: relationship
   aliases:
     - has_parts
     - contains
@@ -49,7 +54,8 @@
 
 - name: is_a
   description: Denotes that a specific entity manifests or instantiates the stated general class or category.
-  is_a: relationship
+  is_a: subclass_of
+  subclass_of: relationship
   aliases:
     - is
   predicates:
@@ -59,36 +65,58 @@
 
 - name: name
   description: The string used to identify and refer to an entity.
-  is_a: attribute
+  is_a: subclass_of
+  subclass_of: attribute
   predicates:
     - has_name
 
 - name: part_of
-  description: Indicates that an entity is a component, sub-entity or part that is contained within or composes the specified other entity.
-  is_a: relationship
+  description: Indicates that an entity is a component, sub-entity or part that is contained within or
+    composes the specified other entity.
+  is_a: subclass_of
+  subclass_of: relationship
   predicates:
     - part_of
     - is_component_of
 
 - name: predicate
   description: Linguistic phrase expressing an attribute of an entity.
-  is_a: attribute
+  is_a: subclass_of
+  subclass_of: attribute
   aliases:
     - predicates
   predicates:
     - has_predicate
 
 - name: related_to
-  description: Denotes that two entities are associated, connected or have a relationship between them, without specifying the type of relationship.
-  is_a: relationship
+  description: Denotes that two entities are associated, connected or have a relationship between them,
+    without specifying the type of relationship.
+  is_a: subclass_of
+  subclass_of: relationship
   predicates:
     - is_related_to
 
 - name: relationship
   description: An attribute that represents an associative connection between the entity and other entities.
-  is_a: attribute
+  is_a: subclass_of
+  subclass_of: attribute
   aliases:
     - relationships
   predicates:
     - is_related_to
     - relates
+
+- name: subclass_of
+  aliases:
+    - subclass
+  is_a:
+    - relationship
+    - subclass_of
+  subclass_of: entity
+  description: The primordial relationship that denotes a specific entity type manifesting as a more specialized
+    subcategory that inherits all properties and constraints from a stated general superclass entity type.
+    Defines the subclass hierarchy itself through circular grounding.
+  predicates:
+    - is_subclass_of
+    - is_subcategory_of
+    - specializes

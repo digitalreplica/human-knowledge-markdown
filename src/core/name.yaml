@@ -1,6 +1,7 @@
 # Name Definition
 name: name
 description: The string used to identify and refer to an entity.
-is_a: attribute
+is_a: subclass_of
+subclass_of: attribute
 predicates:
   - has_name
