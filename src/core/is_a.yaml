@@ -1,7 +1,8 @@
 # "is_a" Relationship Definition
 name: is_a
 description: Denotes that a specific entity manifests or instantiates the stated general class or category.
-is_a: relationship
+is_a: subclass_of
+subclass_of: relationship
 aliases:
   - is
 predicates:

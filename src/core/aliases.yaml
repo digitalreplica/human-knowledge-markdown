@@ -1,7 +1,8 @@
 # Alias Definition
 name: alias
 description: Alternative linguistic representation used to refer to the same entity.
-is_a: attribute
+is_a: subclass_of
+subclass_of: attribute
 aliases:
   - aliases
 predicates:

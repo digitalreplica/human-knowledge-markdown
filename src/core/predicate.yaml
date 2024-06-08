@@ -1,7 +1,8 @@
 # Predicates Definition
 name: predicate
 description: Linguistic phrase expressing an attribute of an entity.
-is_a: attribute
+is_a: subclass_of
+subclass_of: attribute
 aliases:
   - predicates
 predicates:
