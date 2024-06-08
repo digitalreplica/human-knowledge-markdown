@@ -1,6 +1,8 @@
 # Relationship Definition
 name: relationship
-description: An attribute that represents an associative connection between the entity and other entities.
+description: An attribute that represents an associative connection between an entity and other
+  entities, which may be explicitly defined, implied through innate knowledge or context, or
+  naming an unknown entity.
 is_a: subclass_of
 subclass_of: attribute
 aliases:
