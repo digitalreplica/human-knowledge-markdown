@@ -2,7 +2,7 @@ name: related_to
 description: Denotes that an entity is associated, connected or has a relationship to other
   entities, which may include external information resources providing details about the subject
   entity.
-is_a: subclass_of 
+is_a: subclass_of
 subclass_of: relationship
 predicates:
   - is_related_to

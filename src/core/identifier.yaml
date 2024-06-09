@@ -1,0 +1,9 @@
+name: identifier
+description: A unique value that distinctly identifies and represents a particular entity.
+is_a: subclass_of
+subclass_of: attribute
+aliases:
+  - id
+predicates:
+  - has_identifier
+  - identifies
