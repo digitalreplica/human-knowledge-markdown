@@ -1,0 +1,10 @@
+- name: topic
+  description: A fundamental unit for organizing knowledge, representing abstract conceptual components, concrete entities that are the subjects of discourse, or areas of knowledge and understanding.
+  is_a: subclass_of 
+  subclass_of: note
+  aliases:
+    - topics
+  predicates:
+    - is_about
+    - represents
+    - encapsulates
