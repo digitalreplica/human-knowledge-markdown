@@ -3,7 +3,9 @@
     A fundamental unit for organizing knowledge, representing abstract conceptual
     components, concrete entities that are the subjects of discourse, or areas of knowledge and understanding.
   is_a: subclass_of
-  subclass_of: note
+  subclass_of:
+    - entity  
+    - note
   aliases:
     - topics
   predicates:
