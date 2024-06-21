@@ -1,0 +1,26 @@
+name: event
+description: A significant occurrence or happening that takes place at a specific time and location,
+  often involving people or organizations. It can be a planned gathering, a natural phenomenon, or a
+  notable incident.
+is_a: subclass_of
+subclass_of: thing
+attributes:
+  - datetime
+  - location
+  - organizer
+  - participants
+predicates:
+  - occurred_at
+  - took_place_in
+  - organized_by
+  - attended_by
+  - part_of
+aliases:
+  - occurrence
+  - happening
+  - incident
+  - gathering
+  - meeting
+  - conference
+  - festival
+  - ceremony

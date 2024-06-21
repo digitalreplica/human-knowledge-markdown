@@ -1,0 +1,31 @@
+name: datetime
+description: A representation of a point or period in time. Can be expressed as a specific date,
+  datetime, year, or other time unit. For ranges, 'start' and 'end' can be used.
+is_a: subclass_of
+subclass_of: thing
+attributes:
+  - start
+  - end
+predicates:
+  - occurred_at
+  - started_at
+  - ended_at
+  - during
+  - before
+  - after
+aliases:
+  - time
+  - date
+  - timestamp
+  - period
+  - duration
+  - year
+  - month
+  - day
+  - hour
+  - minute
+  - second
+  - start_time
+  - end_time
+  - start_date
+  - end_date
