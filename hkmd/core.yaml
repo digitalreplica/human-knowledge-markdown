@@ -40,18 +40,6 @@
     - aliases
     - predicates
 
-- name: has_part
-  description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
-  is_a: subclass_of
-  subclass_of: relationship
-  aliases:
-    - has_parts
-    - contains
-    - encompasses
-  predicates:
-    - has_part
-    - has_component
-
 - name: identifier
   description: A unique value that distinctly identifies and represents a particular entity.
   is_a: subclass_of
@@ -80,14 +68,22 @@
   predicates:
     - has_name
 
-- name: part_of
-  description: Indicates that an entity is a component, sub-entity or part that is contained within or
-    composes the specified other entity.
+- name: note
+  description: 'A recorded piece of information, thought, or observation representing an atomic unit of
+    knowledge. Notes are the primordial knowledge artifacts that more specialized concepts like topics
+    and entities are derived from.
+
+    '
   is_a: subclass_of
-  subclass_of: relationship
+  subclass_of: entity
+  attributes:
+    - author
+    - topics
+    - created
+    - modified
   predicates:
-    - part_of
-    - is_component_of
+    - has_note
+    - notes
 
 - name: predicate
   description: Linguistic phrase expressing an attribute of an entity.
@@ -133,3 +129,27 @@
     - is_subclass_of
     - is_subcategory_of
     - specializes
+
+- name: thing
+  description: A distinct object, concept or notion that can be considered a subject of knowledge.
+  is_a: subclass_of
+  subclass_of:
+    - entity
+    - relationship
+    - note
+
+- name: topic
+  description: 'A fundamental unit for organizing knowledge, representing abstract conceptual components,
+    concrete entities that are the subjects of discourse, or areas of knowledge and understanding.
+
+    '
+  is_a: subclass_of
+  subclass_of:
+    - entity
+    - note
+  aliases:
+    - topics
+  predicates:
+    - is_about
+    - represents
+    - encapsulates
