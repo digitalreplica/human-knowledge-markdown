@@ -1,0 +1,15 @@
+name: note
+description: >
+  A recorded piece of information, thought, or observation representing
+  an atomic unit of knowledge. Notes are the primordial knowledge artifacts
+  that more specialized concepts like topics and entities are derived from.
+is_a: subclass_of
+subclass_of: entity
+attributes:
+  - author
+  - topics
+  - created
+  - modified
+predicates:
+  - has_note
+  - notes

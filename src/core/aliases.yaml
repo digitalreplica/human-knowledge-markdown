@@ -1,6 +1,8 @@
 # Alias Definition
 name: alias
-description: Alternative linguistic representation used to refer to the same entity.
+description: Alternative linguistic representation used to refer to the same entity. Aliases can
+  be flexibly used as attribute names when referencing the entity, allowing for more intuitive and
+  context-specific knowledge representation.
 is_a: subclass_of
 subclass_of: attribute
 aliases:

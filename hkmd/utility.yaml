@@ -1,0 +1,7 @@
+- name: example
+  description: An illustrative instance that exemplifies the concept or semantics of an entity.
+  is_a: subclass_of
+  subclass_of: attribute
+  predicates:
+    - has_example
+    - example_is

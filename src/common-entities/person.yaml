@@ -1,0 +1,14 @@
+name: person
+description: A human being, representing an individual with a distinct identity.
+is_a: subclass_of
+subclass_of: thing
+attributes:
+  - name
+  - birth_date
+  - gender
+predicates:
+  - is_a_person
+  - represents_individual
+aliases:
+  - individual
+  - human

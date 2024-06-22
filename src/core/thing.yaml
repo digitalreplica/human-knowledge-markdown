@@ -1,0 +1,7 @@
+name: thing
+description: A distinct object, concept or notion that can be considered a subject of knowledge.
+is_a: subclass_of
+subclass_of:
+  - entity
+  - relationship
+  - note

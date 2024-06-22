@@ -1,0 +1,20 @@
+- name: has_part
+  description: Indicates that an entity is composed of or contains the specified part, component or sub-entity.
+  is_a: subclass_of
+  subclass_of: relationship
+  aliases:
+    - has_parts
+    - contains
+    - encompasses
+  predicates:
+    - has_part
+    - has_component
+
+- name: part_of
+  description: Indicates that an entity is a component, sub-entity or part that is contained within or
+    composes the specified other entity.
+  is_a: subclass_of
+  subclass_of: relationship
+  predicates:
+    - part_of
+    - is_component_of

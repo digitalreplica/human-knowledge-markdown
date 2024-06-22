@@ -1,0 +1,26 @@
+name: location
+description: A physical or virtual place that can be identified, described, or referenced. This can
+  range from precise geographic coordinates to named places, regions, or even conceptual spaces.
+is_a: subclass_of
+subclass_of: thing
+attributes:
+  - coordinates
+  - address
+predicates:
+  - is_located_at
+aliases:
+  - place
+  - area
+  - region
+  - site
+  - venue
+  - country
+  - city
+  - town
+  - village
+  - state
+  - province
+  - continent
+  - landmark
+  - address
+  - coordinates

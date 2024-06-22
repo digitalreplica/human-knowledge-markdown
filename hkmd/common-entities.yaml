@@ -1,0 +1,144 @@
+- name: datetime
+  description: A representation of a point or period in time. Can be expressed as a specific date, datetime,
+    year, or other time unit. For ranges, 'start' and 'end' can be used.
+  is_a: subclass_of
+  subclass_of: thing
+  attributes:
+    - start
+    - end
+  predicates:
+    - occurred_at
+    - started_at
+    - ended_at
+    - during
+    - before
+    - after
+  aliases:
+    - time
+    - date
+    - timestamp
+    - period
+    - duration
+    - year
+    - month
+    - day
+    - hour
+    - minute
+    - second
+    - start_time
+    - end_time
+    - start_date
+    - end_date
+
+- name: event
+  description: A significant occurrence or happening that takes place at a specific time and location,
+    often involving people or organizations. It can be a planned gathering, a natural phenomenon, or a
+    notable incident.
+  is_a: subclass_of
+  subclass_of: thing
+  attributes:
+    - datetime
+    - location
+    - organizer
+    - participants
+  predicates:
+    - occurred_at
+    - took_place_in
+    - organized_by
+    - attended_by
+    - part_of
+  aliases:
+    - occurrence
+    - happening
+    - incident
+    - gathering
+    - meeting
+    - conference
+    - festival
+    - ceremony
+
+- name: gender
+  description: A person's gender identity, which may include their sense of self, social identity, or
+    physical characteristics. This can be fluid and may not conform to binary classifications. It may
+    differ from the sex assigned at birth.
+  is_a: subclass_of
+  subclass_of: attribute
+  predicates:
+    - has_gender
+    - identifies_as
+    - expresses_gender_as
+    - was_assigned_at_birth
+  aliases:
+    - gender_identity
+    - gender_expression
+    - sex_assigned_at_birth
+
+- name: location
+  description: A physical or virtual place that can be identified, described, or referenced. This can
+    range from precise geographic coordinates to named places, regions, or even conceptual spaces.
+  is_a: subclass_of
+  subclass_of: thing
+  attributes:
+    - coordinates
+    - address
+  predicates:
+    - is_located_at
+  aliases:
+    - place
+    - area
+    - region
+    - site
+    - venue
+    - country
+    - city
+    - town
+    - village
+    - state
+    - province
+    - continent
+    - landmark
+    - address
+    - coordinates
+
+- name: organization
+  description: A structured group of people with a particular purpose, such as a business, government
+    agency, non-profit, or other collective entity.
+  is_a: subclass_of
+  subclass_of: thing
+  attributes:
+    - founding_date
+    - location
+    - website
+    - industry
+  predicates:
+    - is_organization
+    - operates_as
+    - founded_by
+    - employs
+    - produces
+    - provides
+  aliases:
+    - business
+    - company
+    - corporation
+    - institution
+    - government
+    - agency
+    - non-profit
+    - association
+    - group
+
+- name: person
+  description: A human being, representing an individual with a distinct identity.
+  is_a: subclass_of
+  subclass_of: thing
+  attributes:
+    - name
+    - birth_date
+    - gender
+  predicates:
+    - is_a_person
+    - represents_individual
+  aliases:
+    - individual
+    - human

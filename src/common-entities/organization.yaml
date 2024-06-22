@@ -1,0 +1,27 @@
+name: organization
+description: A structured group of people with a particular purpose, such as a business, government
+  agency, non-profit, or other collective entity.
+is_a: subclass_of
+subclass_of: thing
+attributes:
+  - founding_date
+  - location
+  - website
+  - industry
+predicates:
+  - is_organization
+  - operates_as
+  - founded_by
+  - employs
+  - produces
+  - provides
+aliases:
+  - business
+  - company
+  - corporation
+  - institution
+  - government
+  - agency
+  - non-profit
+  - association
+  - group

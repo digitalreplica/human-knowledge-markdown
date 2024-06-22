@@ -1,0 +1,15 @@
+name: gender
+description: A person's gender identity, which may include their sense of self, social identity,
+  or physical characteristics. This can be fluid and may not conform to binary classifications.
+  It may differ from the sex assigned at birth.
+is_a: subclass_of
+subclass_of: attribute
+predicates:
+  - has_gender
+  - identifies_as
+  - expresses_gender_as
+  - was_assigned_at_birth
+aliases:
+  - gender_identity
+  - gender_expression
+  - sex_assigned_at_birth
