@@ -5,3 +5,5 @@ is_a: subclass_of
 subclass_of: attribute
 predicates:
   - has_name
+aliases:
+  - title
