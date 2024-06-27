@@ -439,3 +439,19 @@ It is hoped that with more contributors, natural "best-in-breed" libraries will 
 ## 13. Conclusion
 
 HKMD provides a flexible, extensible framework for knowledge representation that bridges multiple paradigms. By combining the strengths of data serialization formats, knowledge graphs, topic maps, and formal ontologies, HKMD offers a powerful tool for capturing and organizing human knowledge in a machine-processable form. Its design facilitates both human readability and AI processing, making it a versatile choice for modern knowledge management needs.
+
+## Addendum: HKMD Development Process
+
+HKMD was developed through an iterative process of human-AI collaboration, consisting of multiple dialogue sessions between a single human researcher and an AI language model.
+
+Key aspects of the process:
+
+1. Sessions: Each development session was a single dialogue between the human researcher and the AI. The human provided direction, critical analysis, and domain expertise, while the AI offered rapid prototyping, systematic analysis, and diverse perspective generation.
+
+2. Knowledge Delta Accumulation: After each session, the ai articulated the "knowledge delta" - new insights, decisions, or refinements made during the dialogue. This delta was documented and integrated into the evolving HKMD framework.
+
+3. Cross-Session Context: While AI interactions are stateless, the accumulation of knowledge deltas allowed context to be carried across sessions. The human researcher used this accumulated knowledge to inform and guide subsequent dialogues.
+
+4. Iterative Refinement: Each session built upon previous ones, allowing for continuous refinement of HKMD's core concepts, structures, and principles.
+
+This approach enabled the organic evolution of HKMD, grounded in practical application and responsive to emerging insights. It leveraged the complementary strengths of human expertise and AI capabilities to create a flexible, robust knowledge representation framework.
