@@ -1,35 +1,35 @@
-# HKMD Technical Specification and Architecture
+# Human Knowledge Markdown Technical Specification and Architecture
 
 ## 1. Introduction
 
-Human Knowledge Markdown (HKMD) is a flexible, extensible framework for representing and organizing knowledge. It bridges multiple paradigms including data serialization formats, knowledge graphs, topic maps, and formal ontologies. 
+Human Knowledge Markdown (HKM) is a flexible, extensible framework for representing and organizing knowledge. It bridges multiple paradigms including data serialization formats, knowledge graphs, topic maps, and formal ontologies. 
 
-HKMD works by combining YAML frontmatter with Markdown content in a single file, creating a flexible knowledge container. This allows users to store structured data in the YAML section and freeform notes in the Markdown section:
+HKM works by combining YAML frontmatter with Markdown content in a single file, creating a flexible knowledge container. This allows users to store structured data in the YAML section and freeform notes in the Markdown section:
 
 ```yaml
 ---
-name: Example HKMD Document
+name: Example HKM Document
 is_a: note
 author: John Doe
 topics:
-  - HKMD
+  - HKM
   - Knowledge Representation
 ---
 
-# HKMD Example
+# HKM Example
 
 This is a freeform Markdown section where users can add detailed notes, explanations, or any unstructured content.
 ```
 
-Unlike simple data serialization formats, HKMD goes beyond mere structured data representation. It provides a semantic layer that captures the meaning and relationships of the knowledge being represented. This is achieved through a carefully designed set of primitives and relationships that model how humans naturally think about and organize knowledge. As a result, HKMD documents are not just data containers, but rich, interconnected knowledge artifacts that can be easily understood by both humans and machines.
+Unlike simple data serialization formats, HKM goes beyond mere structured data representation. It provides a semantic layer that captures the meaning and relationships of the knowledge being represented. This is achieved through a carefully designed set of primitives and relationships that model how humans naturally think about and organize knowledge. As a result, HKM documents are not just data containers, but rich, interconnected knowledge artifacts that can be easily understood by both humans and machines.
 
-HKMD is also designed with AI integration in mind. Its structured yet flexible format makes it ideal for AI language models to process, understand, and generate. AI can be used to create new HKMD documents, extract structured HKMD data from unstructured text, or even extend the HKMD language itself by defining new types of entities and relationships. This AI-friendly design makes HKMD a powerful tool for knowledge management in the age of artificial intelligence.
+HKM is also designed with AI integration in mind. Its structured yet flexible format makes it ideal for AI language models to process, understand, and generate. AI can be used to create new HKM documents, extract structured HKM data from unstructured text, or even extend the HKM language itself by defining new types of entities and relationships. This AI-friendly design makes HKM a powerful tool for knowledge management in the age of artificial intelligence.
 
-This document provides a comprehensive technical specification and architectural overview of HKMD, aimed at developers and knowledge workers who may want to implement, use, or extend the language.
+This document provides a comprehensive technical specification and architectural overview of HKM, aimed at developers and knowledge workers who may want to implement, use, or extend the language.
 
 ## 2. Core Concepts
 
-HKMD is built on three fundamental levels of knowledge representation, all deriving from a common `entity`:
+Human Knowledge Markdown is built on three fundamental levels of knowledge representation, all deriving from a common `entity`:
 
 1. **Attributes**: The most granular level, representing individual characteristics or properties.
 2. **Things**: Distinct objects, concepts, or notions that can be subjects of knowledge. These are intended as flexible containers for any entity: people, places, events, books, etc.
@@ -39,11 +39,11 @@ These levels form a flexible hierarchy that allows for bottom-up knowledge model
 
 ## 3. Foundational Primitives
 
-HKMD defines a set of core primitives that serve as the building blocks for all knowledge representation within the system. These primitives are self-defining, creating a circular yet flexible foundation that allows for extensibility and adaptation.
+Human Knowledge Markdown defines a set of core primitives that serve as the building blocks for all knowledge representation within the system. These primitives are self-defining, creating a circular yet flexible foundation that allows for extensibility and adaptation.
 
 ### 3.1 Entity
 
-The `entity` primitive is the root of all representational units in HKMD. It denotes the existence of a distinct concept, construct, or individuated thing, whether abstract or concrete.
+The `entity` primitive is the root of all representational units in HKM. It denotes the existence of a distinct concept, construct, or individuated thing, whether abstract or concrete.
 
 Key characteristics:
 - Serves as the base class for all other primitives
@@ -88,15 +88,15 @@ Key characteristics:
 
 ## 4. Knowledge Representation Model
 
-HKMD uses a flexible entity-attribute-relationship model for knowledge representation. This model allows for:
+HKM uses a flexible entity-attribute-relationship model for knowledge representation. This model allows for:
 
 - Bottom-up knowledge modeling
-- Flexible definition of entity types and relationships
+- Flexible schema of entity types and relationships
 - Gradual formalization of knowledge structures
 
-### 4.1 Entity Definitions and Packages
+### 4.1 Entity Schema and Packages
 
-In HKMD, individual entities are defined in YAML files. For example, the `entity` primitive is defined in `src/core/entity.yaml`:
+In HKM, individual entities are defined in YAML files. For example, the `entity` primitive is defined in `src/core/entity.yaml`:
 
 ```yaml
 name: entity
@@ -109,11 +109,11 @@ attributes:
   - predicates
 ```
 
-These individual entity definitions are then "compiled" into a simple YAML list of entities to create packages or libraries that are easier to use and distribute.
+These individual entity definitions are then "compiled" into a simple YAML list of entities to create packages or libraries that are easier to use and distribute. We refer to these as HKM schema files
 
-### 4.2 Entity Definition Structure
+### 4.2 HKM Schema Structure
 
-Entities in HKMD are defined using a consistent structure:
+Entities in HKM are defined using a consistent structure:
 
 ```yaml
 - name: entity_name
@@ -135,7 +135,7 @@ This structure allows for clear definition of entity characteristics while maint
 
 ### 4.3 Inheritance and Type System
 
-HKMD uses the `subclass_of` relationship to define type hierarchies. This allows for:
+HKM uses the `subclass_of` relationship to define type hierarchies. This allows for:
 
 - Creation of specialized entity types
 - Inheritance of attributes and relationships from parent classes
@@ -143,17 +143,17 @@ HKMD uses the `subclass_of` relationship to define type hierarchies. This allows
 
 ### 4.4 Relationship Representation
 
-Relationships in HKMD are represented as attributes with special semantics. They can be defined using natural language predicates, allowing for intuitive knowledge modeling.
+Relationships in HKM are represented as attributes with special semantics. They can be defined using natural language predicates, allowing for intuitive knowledge modeling.
 
 ## 5. Serialization and Syntax
 
-HKMD uses YAML as its primary serialization format for entity definitions and structured data representation. Definitions are stored in YAML files (.yaml) to differentiate them from their usage inside markdown files.
+HKM uses YAML as its primary serialization format for entity definitions and structured data representation. Definitions are stored in YAML files (.yaml) to differentiate them from their usage inside markdown files.
 
 ### 5.1 YAML Structure
 
 #### Individual Entity Files
 
-HKMD entities are typically defined in individual YAML files. Here are two example entity definitions:
+HKM entities are typically defined in individual YAML files. Here are two example entity definitions:
 
 1. `person.yaml`:
 ```yaml
@@ -217,24 +217,24 @@ This packaged list combines multiple entity definitions into a single YAML file,
 
 ## 6. Usage in Markdown Knowledge Artifacts
 
-In HKMD, a knowledge artifact is any document or file that captures and represents a piece of knowledge. This can range from notes and articles to structured representations of entities or concepts. Knowledge artifacts in HKMD typically combine YAML frontmatter for structured data with Markdown content for freeform information.
+In Human Knowledge Markdown, a knowledge artifact is any document or file that captures and represents a piece of knowledge. This can range from notes and articles to structured representations of entities or concepts. Knowledge artifacts in HKM typically combine YAML frontmatter for structured data with Markdown content for freeform information.
 
 ### 6.1 Notes
 
-HKMD knowledge artifacts combine YAML frontmatter with Markdown content, allowing for rich, freeform knowledge representation. Here's an example of a note-type knowledge artifact:
+HKM knowledge artifacts combine YAML frontmatter with Markdown content, allowing for rich, freeform knowledge representation. Here's an example of a note-type knowledge artifact:
 
 ```yaml
 ---
-name: HKMD Usage Example
+name: HKM Usage Example
 is_a: note
 author: Jane Smith
 topics:
   - Knowledge Management
-  - HKMD
+  - HKM
 created: 2023-06-15
 ---
 
-# HKMD in Practice
+# HKM in Practice
 
 This Markdown section allows for detailed explanations and freeform content.
 
@@ -247,7 +247,7 @@ This Markdown section allows for detailed explanations and freeform content.
 
 ### 6.2 Representing Things
 
-HKMD can also be used to represent "things" in a more structured, database-like manner. Here's an example of a knowledge artifact representing a person:
+HKM can also be used to represent "things" in a more structured, database-like manner. Here's an example of a knowledge artifact representing a person:
 
 ```yaml
 ---
@@ -281,15 +281,15 @@ John is a skilled software engineer with a passion for machine learning and web 
 - Doe, J., & Smith, A. (2022). "Advances in Applied Machine Learning for IoT Devices." Journal of Internet of Things, 15(3), 45-62.
 ```
 
-This example shows how HKMD can be used to represent structured data about a person (in the YAML frontmatter) along with additional unstructured information in the Markdown section.
+This example shows how HKM can be used to represent structured data about a person (in the YAML frontmatter) along with additional unstructured information in the Markdown section.
 
 ### 6.3 Using Defined Attributes and Relationships
 
-When creating HKMD documents, users are encouraged to use the attributes and relationships defined in the HKMD core and any additional packages they're using. However, users can also add custom attributes and relationships to suit their specific needs:
+When creating HKM documents, users are encouraged to use the attributes and relationships defined in the HKM core and any additional packages they're using. However, users can also add custom attributes and relationships to suit their specific needs:
 
 ```yaml
 ---
-title: My Custom HKMD Document
+title: My Custom HKM Document
 author: John Doe
 topics:
   - Custom Knowledge
@@ -299,20 +299,20 @@ custom_relationship:
   - Related Item 2
 ---
 
-# Custom HKMD Usage
+# Custom HKM Usage
 
-This document demonstrates how users can add custom attributes and relationships to standard HKMD structures.
+This document demonstrates how users can add custom attributes and relationships to standard HKM structures.
 
 ## Extended Usage
 
-While HKMD provides a set of core attributes and relationships, its flexibility allows for domain-specific extensions, enabling rich and varied knowledge representation.
+While HKM provides a set of core attributes and relationships, its flexibility allows for domain-specific extensions, enabling rich and varied knowledge representation.
 ```
 
-These examples demonstrate the versatility of HKMD in representing different types of knowledge artifacts, from freeform notes to structured entity representations, while allowing for customization to meet specific needs.
+These examples demonstrate the versatility of HKM in representing different types of knowledge artifacts, from freeform notes to structured entity representations, while allowing for customization to meet specific needs.
 
 ## 7. Extensibility and Customization
 
-HKMD is designed to be highly extensible, allowing for domain-specific customizations and extensions.
+Human Knowledge Markdown is designed to be highly extensible, allowing for domain-specific customizations and extensions.
 
 ### 7.1 Custom Entity Types
 
@@ -329,15 +329,15 @@ New entity types can be defined by subclassing existing primitives:
 
 ### 7.2 Domain-Specific Packages
 
-HKMD supports the creation of domain-specific packages that extend the core primitives with specialized entities and relationships.
+HKM supports the creation of domain-specific packages that extend the core primitives with specialized entities and relationships.
 
 ## 8. Interoperability
 
-HKMD is designed to interoperate with existing knowledge representation standards and technologies. However, it's important to note that much work still needs to be done in this area. The following examples illustrate potential interoperability approaches:
+Human Knowledge Markdown is designed to interoperate with existing knowledge representation standards and technologies. However, it's important to note that much work still needs to be done in this area. The following examples illustrate potential interoperability approaches:
 
 ### 8.1 Mapping to Formal Ontologies
 
-HKMD constructs can be mapped to formal ontologies like OWL or schema.org. For example:
+HKM constructs can be mapped to formal ontologies like OWL or schema.org. For example:
 
 ```yaml
 name: Person
@@ -353,7 +353,7 @@ This definition could be mapped to the schema.org Person class, allowing for int
 
 ### 8.2 Knowledge Graph Compatibility
 
-The entity-attribute-relationship model of HKMD is compatible with graph database structures. For instance, an HKMD relationship:
+The entity-attribute-relationship model of HKM is compatible with graph database structures. For instance, an HKM relationship:
 
 ```yaml
 - name: John
@@ -365,7 +365,7 @@ Could be represented as a graph edge: `(John)-[KNOWS]->(Jane)`
 
 ### 8.3 Topic Map Alignment
 
-HKMD's topic-based organization aligns with topic map concepts. For example:
+HKM's topic-based organization aligns with topic map concepts. For example:
 
 ```yaml
 - name: Programming
@@ -379,79 +379,79 @@ This could be represented as a topic with associations in a topic map structure.
 
 ## 9. AI Integration
 
-HKMD is designed to be used directly with AI Language Models (LLMs). The language is structured so that AI models can directly understand the meaning through the semantic definitions reinforced by the entity definitions.
+Human Knowledge Markdown is designed to be used directly with AI Language Models (LLMs). The language is structured so that AI models can directly understand the meaning through the semantic definitions reinforced by the entity definitions.
 
 AI can be used to:
 1. Extend the language by defining new types of entities
-2. Extract structured data from unstructured text into HKMD format
-3. Summarize or analyze HKMD-structured information
+2. Extract structured data from unstructured text into HKM format
+3. Summarize or analyze HKM-structured information
 
 For example, an AI could be prompted to create a new entity definition:
 
 ```
-Create an HKMD entity definition for a 'Recipe' that includes attributes for ingredients, instructions, and cooking time.
+Create an HKM entity definition for a 'Recipe' that includes attributes for ingredients, instructions, and cooking time.
 ```
 
-The AI could then generate a suitable YAML definition that follows HKMD conventions.
+The AI could then generate a suitable YAML definition that follows HKM conventions.
 
 ## 10. Implementation Considerations
 
 ### 10.1 Parsing and Processing
 
-Implementations of HKMD should consider:
+Implementations of HKM should consider:
 - Efficient YAML parsing
 - Handling of circular definitions
 - Resolution of inheritance hierarchies
 
 ### 10.2 Validation
 
-HKMD implementations should provide validation mechanisms for:
+HKM implementations should provide validation mechanisms for:
 - Entity structure compliance
 - Relationship consistency
 - Inheritance validity
 
 ### 10.3 Query and Traversal
 
-While specific query languages are not part of the core HKMD specification, implementations should consider efficient mechanisms for:
+While specific query languages are not part of the core HKM specification, implementations should consider efficient mechanisms for:
 - Entity lookup
 - Relationship traversal
 - Attribute querying
 
 ## 11. Future Directions
 
-The HKMD specification is designed to evolve. Future areas of development may include:
+The Human Knowledge Markdown specification is designed to evolve. Future areas of development may include:
 - Query language specifications
 - Inference engine integration
 - Enhanced interoperability with AI and machine learning systems
 
 ## 12. Contributing
 
-HKMD is an open-source project, and contributions are welcome. The source code is available at https://github.com/digitalreplica/human-knowledge-markdown under an Apache 2.0 license. Users are free to use, adapt, and contribute back to the project.
+Human Knowledge Markdown is an open-source project, and contributions are welcome. The source code is available at https://github.com/digitalreplica/human-knowledge-markdown under an Apache 2.0 license. Users are free to use, adapt, and contribute back to the project.
 
 We encourage contributions in several areas:
 - Extending core definitions and creating new entity types
 - Developing domain-specific packages
 - Improving interoperability with other knowledge representation systems
-- Creating tools and libraries for working with HKMD
+- Creating tools and libraries for working with HKM
 
 It is hoped that with more contributors, natural "best-in-breed" libraries will emerge to help standardize knowledge representation across large groups of people.
 
 ## 13. Conclusion
 
-HKMD provides a flexible, extensible framework for knowledge representation that bridges multiple paradigms. By combining the strengths of data serialization formats, knowledge graphs, topic maps, and formal ontologies, HKMD offers a powerful tool for capturing and organizing human knowledge in a machine-processable form. Its design facilitates both human readability and AI processing, making it a versatile choice for modern knowledge management needs.
+Human Knowledge Markdown provides a flexible, extensible framework for knowledge representation that bridges multiple paradigms. By combining the strengths of data serialization formats, knowledge graphs, topic maps, and formal ontologies, HKM offers a powerful tool for capturing and organizing human knowledge in a machine-processable form. Its design facilitates both human readability and AI processing, making it a versatile choice for modern knowledge management needs.
 
-## Addendum: HKMD Development Process
+## Addendum: Human Knowledge Markdown Development Process
 
-HKMD was developed through an iterative process of human-AI collaboration, consisting of multiple dialogue sessions between a single human researcher and an AI language model.
+Human Knowledge Markdown was developed through an iterative process of human-AI collaboration, consisting of multiple dialogue sessions between a single human researcher and an AI language model.
 
 Key aspects of the process:
 
 1. Sessions: Each development session was a single dialogue between the human researcher and the AI. The human provided direction, critical analysis, and domain expertise, while the AI offered rapid prototyping, systematic analysis, and diverse perspective generation.
 
-2. Knowledge Delta Accumulation: After each session, the ai articulated the "knowledge delta" - new insights, decisions, or refinements made during the dialogue. This delta was documented and integrated into the evolving HKMD framework.
+2. Knowledge Delta Accumulation: After each session, the ai articulated the "knowledge delta" - new insights, decisions, or refinements made during the dialogue. This delta was documented and integrated into the evolving HKM framework.
 
 3. Cross-Session Context: While AI interactions are stateless, the accumulation of knowledge deltas allowed context to be carried across sessions. The human researcher used this accumulated knowledge to inform and guide subsequent dialogues.
 
-4. Iterative Refinement: Each session built upon previous ones, allowing for continuous refinement of HKMD's core concepts, structures, and principles.
+4. Iterative Refinement: Each session built upon previous ones, allowing for continuous refinement of HKM's core concepts, structures, and principles.
 
-This approach enabled the organic evolution of HKMD, grounded in practical application and responsive to emerging insights. It leveraged the complementary strengths of human expertise and AI capabilities to create a flexible, robust knowledge representation framework.
+This approach enabled the organic evolution of HKM, grounded in practical application and responsive to emerging insights. It leveraged the complementary strengths of human expertise and AI capabilities to create a flexible, robust knowledge representation framework.
