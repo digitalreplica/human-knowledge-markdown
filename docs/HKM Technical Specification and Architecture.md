@@ -1,4 +1,4 @@
-# Human Knowledge Markdown Technical Specification and Architecture
+# Human Knowledge Markdown (HKM): Technical Specification and Architecture
 
 ## 1. Introduction
 
@@ -85,6 +85,15 @@ Key characteristics:
 - Subclass of `entity` and `note`
 - Serves as a high-level organizational unit
 - Can encompass multiple `thing` instances and other `topic`s
+
+### 3.6 Aliases
+
+Aliases in HKM serve a dual purpose:
+
+1. They provide alternative linguistic representations for entities, enhancing findability and natural language processing.
+2. They can be flexibly used as attribute names when referencing entities, allowing for more intuitive and context-specific knowledge representation.
+
+For example, an entity of type "person" might have aliases like "individual" or "human". These aliases can then be used interchangeably when referencing the entity in other HKM documents, providing flexibility in how knowledge is expressed and linked.
 
 ## 4. Knowledge Representation Model
 
@@ -310,6 +319,39 @@ While HKM provides a set of core attributes and relationships, its flexibility a
 
 These examples demonstrate the versatility of HKM in representing different types of knowledge artifacts, from freeform notes to structured entity representations, while allowing for customization to meet specific needs.
 
+### 6.4 Flexible Usage of Common Entities
+
+Common entities in HKM, such as person, datetime, and location, can be used both as standalone knowledge artifacts and as attributes within other entities. This dual nature allows for rich, detailed representation when needed, and simpler attribute-style usage in other contexts.
+
+For example, a "person" entity could be a full HKM document:
+
+```yaml
+---
+name: John Doe
+is_a: person
+birth_date: 1985-03-15
+occupation: Software Engineer
+---
+
+Detailed biography and information about John Doe...
+```
+
+Or it could be used as an attribute in another entity:
+
+```yaml
+---
+name: Project X
+is_a: project
+lead_developer: 
+  name: John Doe
+  role: Software Engineer
+---
+
+Project details...
+```
+
+This flexibility allows HKM to adapt to various levels of detail and complexity in knowledge representation.
+
 ## 7. Extensibility and Customization
 
 Human Knowledge Markdown is designed to be highly extensible, allowing for domain-specific customizations and extensions.
@@ -377,22 +419,103 @@ HKM's topic-based organization aligns with topic map concepts. For example:
 
 This could be represented as a topic with associations in a topic map structure.
 
+#### 8.3.1 Self-Organizing Topic Map Algorithm
+HKM provides a powerful framework for organizing knowledge through topic mapping. A key feature is the Self-Organizing Topic Map Algorithm, which enables the construction of coherent topic structures from large collections of unstructured notes.
+
+1. **Initial Topic Extraction**
+   - Use an AI language model to analyze the content of each note
+   - Extract potential topics based on semantic analysis, entity recognition, and keyword extraction
+   - Assign a confidence score to each extracted topic based on relevance to the note content
+
+2. **Topic Clustering and Pruning**
+   - Aggregate the extracted topics across all notes into a master list
+   - Use clustering algorithms (e.g., K-Means, DBSCAN) to group similar topics together
+   - Identify and remove redundant or near-duplicate topics within each cluster
+   - Optionally, use word vector models (e.g., Word2Vec, GloVe) to enhance semantic similarity calculations
+
+3. **Human-Guided Topic Curation**
+   - Present the clustered topics to human curators for review
+   - Allow curators to merge, split, rename, or remove topics as needed
+   - Facilitate collaborative discussion and resolution of conflicts or ambiguities
+   - Capture human-provided topic descriptions and relationships
+
+4. **Topic Hierarchy Construction**
+   - Use the curated topics as input to a hierarchy construction algorithm
+   - Employ techniques like subsumption analysis, semantic similarity, and co-occurrence patterns
+   - Identify potential parent-child relationships and construct an initial topic hierarchy
+   - Utilize any existing ontologies or taxonomies as a base structure, if available
+
+5. **Topic Relationship Modeling**
+   - Analyze the topic hierarchy and note content to identify cross-cutting relationships
+   - Model these relationships as links between different branches of the hierarchy
+   - Construct a topic graph representing both hierarchical and associative relationships
+
+6. **Note Re-Tagging**
+   - Use the constructed topic graph as a reference model
+   - Re-analyze each note's content against the graph
+   - Assign the most relevant topics (hierarchical and associative) to each note
+   - Utilize AI techniques like semantic similarity, topic modeling, and classification
+
+7. **Human Validation and Refinement**
+   - Provide interfaces for human experts to review the note-topic assignments
+   - Allow for manual corrections, additions, or removals of assigned topics
+   - Capture human feedback and use it to refine the topic graph and AI models
+
+8. **Iterative Convergence**
+   - Feed the human-validated note-topic assignments back into the algorithm
+   - Repeat steps 2-7, using the updated data to further refine the topic structure
+   - Continue iterating until the topic graph and note assignments stabilize
+
+This algorithm leverages both AI capabilities and human expertise to create a robust, self-organizing knowledge structure that can handle large volumes of unstructured information.
+
+### 8.4 Schema.org Alignment
+
+HKM entities can be aligned with Schema.org types to enhance web discoverability. For example:
+
+```yaml
+name: Person
+is_a: subclass_of
+subclass_of: thing
+schema_org_type: schema:Person
+attributes:
+  - name
+  - birthDate
+  - gender
+```
+
+This alignment allows HKM data to be easily translated into Schema.org-compatible formats for use in structured data on the web.
+
 ## 9. AI Integration
 
-Human Knowledge Markdown is designed to be used directly with AI Language Models (LLMs). The language is structured so that AI models can directly understand the meaning through the semantic definitions reinforced by the entity definitions.
+Human Knowledge Markdown is designed to be used directly with AI Language Models (LLMs). The language is structured so that AI models can directly understand the meaning through the semantic definitions reinforced by the entity definitions.AI can be used with HKM in several ways:
 
-AI can be used to:
-1. Extend the language by defining new types of entities
-2. Extract structured data from unstructured text into HKM format
-3. Summarize or analyze HKM-structured information
+1. **Entity Definition**: AI can create new entity definitions based on natural language descriptions. For example:
 
-For example, an AI could be prompted to create a new entity definition:
+   Prompt: "Create an HKM entity definition for a 'Recipe' that includes attributes for ingredients, instructions, and cooking time."
 
-```
-Create an HKM entity definition for a 'Recipe' that includes attributes for ingredients, instructions, and cooking time.
-```
+   AI-generated response:
+   ```yaml
+   name: recipe
+   is_a: subclass_of
+   subclass_of: thing
+   attributes:
+     - ingredients
+     - instructions
+     - cooking_time
+   predicates:
+     - is_recipe_for
+     - has_ingredient
+     - requires_time
+   aliases:
+     - dish
+     - meal
+   ```
 
-The AI could then generate a suitable YAML definition that follows HKM conventions.
+2. **Structured Data Extraction**: AI can extract structured HKM data from unstructured text. For instance, given a paragraph about a person, AI could generate an HKM-formatted representation of that person.
+
+3. **Knowledge Base Expansion**: AI can suggest new relationships or attributes for existing entities based on analysis of the current knowledge base and external information sources.
+
+4. **Natural Language Querying**: AI can interpret natural language queries and translate them into formal queries against the HKM knowledge base.
 
 ## 10. Implementation Considerations
 
@@ -419,10 +542,15 @@ While specific query languages are not part of the core HKM specification, imple
 
 ## 11. Future Directions
 
-The Human Knowledge Markdown specification is designed to evolve. Future areas of development may include:
-- Query language specifications
-- Inference engine integration
+The Human Knowledge Markdown specification is designed to evolve. Additional areas for future research and development include:
 - Enhanced interoperability with AI and machine learning systems
+- Cardinality constraints for relationships and attributes
+- Additional relationship characteristics (transitivity, symmetry, etc.)
+- Data types and value constraints for attribute values
+- Support for reification and higher-order constructs
+- Advanced querying capabilities, including a dedicated query language for HKM
+- Inference engines for deriving new knowledge from existing HKM data
+- Tools for visual editing and navigation of HKM knowledge bases
 
 ## 12. Contributing
 
