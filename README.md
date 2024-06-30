@@ -71,7 +71,7 @@ HKM is a flexible knowledge representation format that combines the simplicity o
 
 ## Tools
 
-- [compile_hkmd_package.py](./tools/compile_hkmd_package.py): A utility for compiling individual YAML definition files into a single HKM schema package.
+- [compile_hkm_package.py](./tools/compile_hkm_package.py): A utility for compiling individual YAML definition files into a single HKM schema package.
 
 ## Contributing
 
