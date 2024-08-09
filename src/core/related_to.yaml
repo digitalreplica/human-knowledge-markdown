@@ -7,3 +7,5 @@ subclass_of: relationship
 predicates:
   - is_related_to
   - has_occurrence
+aliases:
+  - related_topics
